@@ -1,0 +1,225 @@
+Script started on 2024-02-03 02:36:08-06:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="124" LINES="5"]
+[?2004h]0;khoai@khoai: ~/dev/csc161/HW1[01;32mkhoai@khoai[00m:[01;34m~/dev/csc161/HW1[00m$ ./boxofficeclang -o boxoffice boxoffice.c[19P./boxoffice
+[?2004lWelcome to The Strand!
+Ticket number should be larger than 0 and a whole number.
+Enter the number of tickets you would like to purchase: 2
+Enter information for ticket number 1.
+Please enter the age of ticket holder: -10
+Invalid age. Age is between 0 and 150. Please try again!
+Enter information for ticket number 1.
+Please enter the age of ticket holder: 160  51
+Invalid age. Age is between 0 and 150. Please try again!
+Enter information for ticket number 1.
+Please enter the age of ticket holder: 150
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 8
+Invalid location. Pick from 1, 2, or 3. Please try again!
+Enter information for ticket number 1.
+Please enter the age of ticket holder: 10
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 1
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 5 -9
+Invalid time. Pick from 1, 2, or 3. Please try again!
+Enter information for ticket number 1.
+Please enter the age of ticket holder: 6 11
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 2
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 1
+    Ticket 1 Information
+Ticket holder's age:  11 years old
+Time selected:        Matinee
+Location selected:    Main floor - sides
+Ticket Price:         $20.00
+Enter information for ticket number 2.
+Please enter the age of ticket holder: 55
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 3
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 2
+    Ticket 2 Information
+Ticket holder's age:  55 years old
+Time selected:        Evening
+Location selected:    Balcony
+Ticket Price:         $15.00
+     Checkout
+Total Price: $35.00
+[?2004h]0;khoai@khoai: ~/dev/csc161/HW1[01;32mkhoai@khoai[00m:[01;34m~/dev/csc161/HW1[00m$ ./boxofficeclang -o boxoffice boxoffice.c[19P./boxoffice
+[?2004lWelcome to The Strand!
+Ticket number should be larger than 0 and a whole number.
+Enter the number of tickets you would like to purchase: 3
+Enter information for ticket number 1.
+Please enter the age of ticket holder: 0
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 1
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 2 1
+    Ticket 1 Information
+Ticket holder's age:  0 years old
+Time selected:        Matinee
+Location selected:    Main floor - middle section
+Ticket Price:         $0.00
+Enter information for ticket number 2.
+Please enter the age of ticket holder: 149   56
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 3 2
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 2
+    Ticket 2 Information
+Ticket holder's age:  56 years old
+Time selected:        Evening
+Location selected:    Main floor - sides
+Ticket Price:         $20.00
+Enter information for ticket number 3.
+Please enter the age of ticket holder: 11
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 1
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 2
+    Ticket 3 Information
+Ticket holder's age:  11 years old
+Time selected:        Evening
+Location selected:    Main floor - middle section
+Ticket Price:         $30.00
+     Checkout
+Total Price: $50.00
+[?2004h]0;khoai@khoai: ~/dev/csc161/HW1[01;32mkhoai@khoai[00m:[01;34m~/dev/csc161/HW1[00m$ ./boxoffice
+[?2004lWelcome to The Strand!
+Ticket number should be larger than 0 and a whole number.
+Enter the number of tickets you would like to purchase: 1
+Enter information for ticket number 1.
+Please enter the age of ticket holder: 5
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 2
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 1
+    Ticket 1 Information
+Ticket holder's age:  5 years old
+Time selected:        Matinee
+Location selected:    Main floor - sides
+Ticket Price:         $0.00
+     Checkout
+Total Price: $0.00
+[?2004h]0;khoai@khoai: ~/dev/csc161/HW1[01;32mkhoai@khoai[00m:[01;34m~/dev/csc161/HW1[00m$ ./boxoffice
+[?2004lWelcome to The Strand!
+Ticket number should be larger than 0 and a whole number.
+Enter the number of tickets you would like to purchase: 1
+Enter information for ticket number 1.
+Please enter the age of ticket holder: 6
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 3
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 2
+    Ticket 1 Information
+Ticket holder's age:  6 years old
+Time selected:        Evening
+Location selected:    Balcony
+Ticket Price:         $15.00
+     Checkout
+Total Price: $15.00
+[?2004h]0;khoai@khoai: ~/dev/csc161/HW1[01;32mkhoai@khoai[00m:[01;34m~/dev/csc161/HW1[00m$ ./boxoffice
+[?2004lWelcome to The Strand!
+Ticket number should be larger than 0 and a whole number.
+Enter the number of tickets you would like to purchase: 4
+Enter information for ticket number 1.
+Please enter the age of ticket holder: 155
+Invalid age. Age is between 0 and 150. Please try again!
+Enter information for ticket number 1.
+Please enter the age of ticket holder: 98
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 2
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 1
+    Ticket 1 Information
+Ticket holder's age:  98 years old
+Time selected:        Matinee
+Location selected:    Main floor - sides
+Ticket Price:         $15.00
+Enter information for ticket number 2.
+Please enter the age of ticket holder: 5 8
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 1
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 1
+    Ticket 2 Information
+Ticket holder's age:  8 years old
+Time selected:        Matinee
+Location selected:    Main floor - middle section
+Ticket Price:         $20.00
+Enter information for ticket number 3.
+Please enter the age of ticket holder: -0
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 5 -0
+Invalid location. Pick from 1, 2, or 3. Please try again!
+Enter information for ticket number 3.
+Please enter the age of ticket holder: 1
+Which location would you like to buy ticket for?
+Type '1' for Main floor-Middle Section
+Type '2' for Main floor-sides
+Type '3' for Balcony
+Choose here: 3
+Please select show time:
+Type '1' to select Matinee
+Type '2' to select Evening
+Choose here: 1
+    Ticket 3 Information
+Ticket holder's age:  1 years old
+Time selected:        Matinee
+Location select
