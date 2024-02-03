@@ -21,8 +21,12 @@ int main(void) {
 
     int num_ticket;
     int location;
-    int seat;
+    int time;
+    int age;
 
+    // Instruction for customer
+    printf("Welcome to The Strand!\nPlease make purchase. If time you can buy the same type of tickets, if needed different types, finish the round then select again.\n");
+  
     // Number of tickets input
     printf("Enter the number of tickets you would you like to purchase: ");
     scanf("%d", &num_ticket);
@@ -32,13 +36,17 @@ int main(void) {
     scanf("%d", &location);
 
     // Seat input
-    printf("Please select seat:\nType '1' to select Matinee\nType '2' to select Evening\nChoose here: ");
-    scanf("%d", &seat);
+    printf("Please select show time:\nType '1' to select Matinee\nType '2' to select Evening\nChoose here: ");
+    scanf("%d", &time);
 
-    switch (location) {
+    // Age input
+    printf("Please enter ticket owner's/owners' age/ages: ");
+    scanf("%d", &age);
+
+    /*switch (location) {
         case 1:
-            
-    }
+            printf("M")
+    }*/
 
     return 0;
 }
