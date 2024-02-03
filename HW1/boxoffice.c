@@ -21,14 +21,24 @@ int main(void) {
 
     int num_ticket;
     int location;
+    int seat;
 
     // Number of tickets input
     printf("Enter the number of tickets you would you like to purchase: ");
-    scanf("%d", num_ticket);
+    scanf("%d", &num_ticket);
 
     // Location input
-    printf("Which location would you like to buy ticket for?\nType '1' for Main floor-Middle Section\nType '2' for Main floor-sides\nType '3' for Balcony\n");
-    scanf("%d", location);
+    printf("Which location would you like to buy ticket for?\nType '1' for Main floor-Middle Section\nType '2' for Main floor-sides\nType '3' for Balcony\nChoose here: ");
+    scanf("%d", &location);
+
+    // Seat input
+    printf("Please select seat:\nType '1' to select Matinee\nType '2' to select Evening\nChoose here: ");
+    scanf("%d", &seat);
+
+    switch (location) {
+        case 1:
+            
+    }
 
     return 0;
 }
