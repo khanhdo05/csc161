@@ -4,7 +4,7 @@
  */
 
 /***************************************/
-/*            TICKET PRICING           */
+/*           TICKET PRICING            */
 /*    This program will calculate the  */
 /*   purchases of tickets at a theater */
 /***************************************/
@@ -13,12 +13,7 @@
 
 int main(void) {
 
-    /* 
-        Valid ages for ticket holders are between 0 and 150 (inclusive). 
-        Tickets for children 5 and under are free regardless of time and location. 
-        Children between 6 and 10, inclusive, and senior citizens (age 55 and older) receive a $5.00 discount.
-    */
-
+    // Initializing and assigning constant values
     const float thirty = 30.00;
     const float twenty_five = 25.00;
     const float twenty = 20.00;
@@ -27,17 +22,22 @@ int main(void) {
     const int child = 5;
     const int senior = 55;
 
+    // Initializing variables
     int num_ticket, location, time, age;
     float total_price = 0.0;
 
     // Number of tickets input
-    printf("Welcome to The Strand!\nEnter the number of tickets you would like to purchase: ");
+    printf("Welcome to The Strand!\nTicket number should be larger than 0 and a whole number.\nEnter the number of tickets you would like to purchase: ");
     scanf("%d", &num_ticket);
 
+    /*
+        Main program loop. Each loop is for each ticket round. 
+        Will run loop from 1 to the number of tickets, inclusively.
+    */
     for (int i = 1; i <= num_ticket; i++) {
 
         float ticket_price;
-        printf("Enter inforrmation for ticket number %d.\n", i);
+        printf("Enter information for ticket number %d.\n", i);
 
         // Age input
         printf("Please enter the age of ticket holder: ");
@@ -46,7 +46,7 @@ int main(void) {
         // Handle Age Invalid Inputs
         if ((age < 0) || (age > 150)) {
             printf("Invalid age. Age is between 0 and 150. Please try again!\n");
-            i--;
+            i--; // decrement i in order to rerun the loop
             continue;
         }
 
@@ -61,11 +61,11 @@ int main(void) {
             continue;
         }
 
-        // Seat input
+        // Time input
         printf("Please select show time:\nType '1' to select Matinee\nType '2' to select Evening\nChoose here: ");
         scanf("%d", &time);    
 
-        // Handle Location Invalid Inputs
+        // Handle Time Invalid Inputs
         if ((time != 1 && time != 2) && time != 3) {
             printf("Invalid time. Pick from 1, 2, or 3. Please try again!\n");
             i--;
@@ -101,43 +101,44 @@ int main(void) {
                 }
         }
 
-        // If age below 5
-        if ((age >= 0) && (age <= 5)) {
+        // Handle special prices
+        if ((age >= 0) && (age <= 5)) { // Age 0-5, price is free
             ticket_price = 0.0;
         }
-        else if (((age >= 6) && (age <= 10)) || (age >= 55)) {
+        else if (((age >= 6) && (age <= 10)) || (age >= 55)) { // Age 6-10 or 55 up, price -$5
             ticket_price -= discount;
         }
 
-        total_price += ticket_price;
+        total_price += ticket_price; // Add ticket price of each round to the total price, which is outside of the ticket loop
 
         // Print Information
-        printf("    Ticket %d Information\n", num_ticket);
-        printf("Ticket holder's age: %d years old", age);
+        printf("    Ticket %d Information\n", i);
+        printf("Ticket holder's age:  %d years old\n", age);
         switch (time) {
             case 1:
-                printf("Time selected: Evening");
+                printf("Time selected:        Matinee\n");
                 break;
             case 2:
-                printf("Time selected: Matinee");
+                printf("Time selected:        Evening\n");
                 break;
         }
         switch (location) {
             case 1:
-                printf("Location selected: Main floor - middle section");
+                printf("Location selected:    Main floor - middle section\n");
                 break;
             case 2:
-                printf("Location selected: Main floor - sides");
+                printf("Location selected:    Main floor - sides\n");
                 break;
             case 3:
-                printf("Location selected: Balcony");
+                printf("Location selected:    Balcony\n");
                 break;
 
         }
-        printf("Ticket Price: $%.2f", ticket_price);
+        printf("Ticket Price:         $%.2f\n", ticket_price);
     }
     
-    printf("Total Price: $%.2f", total_price);
+    printf("     Checkout\n");
+    printf("Total Price: $%.2f\n", total_price);
 
     return 0;
 }
