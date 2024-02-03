@@ -19,10 +19,16 @@ int main(void) {
         Children between 6 and 10, inclusive, and senior citizens (age 55 and older) receive a $5.00 discount.
     */
 
-    int num_ticket;
-    int location;
-    int time;
-    int age;
+    const float thirty = 30.00;
+    const float twenty_five = 25.00;
+    const float twenty = 20.00;
+    const float fifteen = 15.00;
+    const float discount = 5.00;
+    const int child = 5;
+    const int senior = 55;
+
+    int num_ticket, location, time, age;
+    float total_price;
 
     // Instruction for customer
     printf("Welcome to The Strand!\nPlease make purchase. If time you can buy the same type of tickets, if needed different types, finish the round then select again.\n");
