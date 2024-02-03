@@ -28,31 +28,29 @@ int main(void) {
     const int senior = 55;
 
     int num_ticket, location, time, age;
-    float total_price;
+    float total_price = 0.0;
 
-    // Instruction for customer
-    printf("Welcome to The Strand!\nPlease make purchase. If time you can buy the same type of tickets, if needed different types, finish the round then select again.\n");
-  
     // Number of tickets input
-    printf("Enter the number of tickets you would you like to purchase: ");
-    scanf("%d", &num_ticket);
+    printf("Welcome to The Strand!\nEnter the number of tickets you would like to purchase: ");
+    scanf("%d", num_ticket);
 
-    // Location input
-    printf("Which location would you like to buy ticket for?\nType '1' for Main floor-Middle Section\nType '2' for Main floor-sides\nType '3' for Balcony\nChoose here: ");
-    scanf("%d", &location);
+    for (int i = 1; i <= num_ticket; i++) {
+        // Location input
+        printf("Which location would you like to buy ticket for?\nType '1' for Main floor-Middle Section\nType '2' for Main floor-sides\nType '3' for Balcony\nChoose here: ");
+        scanf("%d", &location);
 
-    // Seat input
-    printf("Please select show time:\nType '1' to select Matinee\nType '2' to select Evening\nChoose here: ");
-    scanf("%d", &time);
+        // Seat input
+        printf("Please select show time:\nType '1' to select Matinee\nType '2' to select Evening\nChoose here: ");
+        scanf("%d", &time);
 
-    // Age input
-    printf("Please enter ticket owner's/owners' age/ages: ");
-    scanf("%d", &age);
+        // Age input
+        printf("Please enter the age of ticket holder: ");
+        scanf("%d", &age);
 
-    /*switch (location) {
-        case 1:
-            printf("M")
-    }*/
+        
+    }
+
+    printf("Total Price: %.2f dollars.", total_price);
 
     return 0;
 }
