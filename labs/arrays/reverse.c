@@ -15,15 +15,16 @@ int main() {
   char message[max_length];
 
   printf("Enter a message: ");
-  while (ch != '\n') {
-    ch = getchar();
+  while ((len < max_length) && ((ch = getchar()) != '\n')) {
     message[len] = ch;
     len++;
   }
 
-  for(int i = 0; i < len; i++) {
-    printf("%s", &message[i]);
+  printf("The reversed message is: ");
+  for(int i = len - 1; i >= 0; i--) {
+    printf("%c", message[i]);
   }
-
+  printf("\n");
+  
   return 0;
 }
