@@ -119,10 +119,28 @@ int main() {
      ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}};
 
   // Exercise 1: print the array above in the order it is stored
+  for (int i = 0; i < HEIGHT; i++) {
+    for (int j = 0; j < WIDTH; j++) {
+      printf("%c", face[i][j]);
+    }
+    printf("\n");
+  }
 
   // Exercise 2: print the array flipped vertically
+  for (int i = HEIGHT - 1; i >= 0; i--) {
+    for (int j = 0; j < WIDTH; j++) {
+      printf("%c", face[i][j]);
+    }
+    printf("\n");
+  }
 
   // Exercise 3: print the array transposed (eyes on the right, mouth on the left)
+  for (int j = 0; j < WIDTH; j++) {
+    for (int i = 0; i < HEIGHT; i++) {
+      printf("%c", face[i][j]);
+    }
+    printf("\n");
+  }
 
   return 0;
 }
