@@ -48,6 +48,11 @@ double calculateMinimumPay(double remaining_balance, double interest_accrued, do
     }
 }
 
+// Define a function that helps update the remaining_balance each cycle
+double updateBalance(double remaining_balance, double payment, double interest_accrued) {
+    return (remaining_balance - payment + interest_accrued);
+}
+
 // Main Function
 int main() {
 
