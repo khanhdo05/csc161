@@ -13,7 +13,7 @@ double calculateDPR(double APR);
 double calculateInterestAccrued(double DPR, int days, double remaining_balance);
 double calculateMinimumPay(double remaining_balance, double interest_accrued, double payment);
 double updateBalance(double remaining_balance, double payment, double interest_accrued);
-int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int start_month, double *total_payment);
+int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int start_month);
 double calculateTotalPayment(double monthly_minimum);
 
 // Define a function that helps calculate how many days is in a month
@@ -21,7 +21,7 @@ int calculateDaysInMonth(int month) {
     if (month == 2) {
         return 28;
     }
-    else if ((((month == 8) || (month == 10)) || (month == 12)) || (month % 2 != 0)) {
+    else if (((((month == 8) || (month == 10)) || (month == 12)) || (month % 2 != 0)) && ((month != 9) && (month != 11))) {
         return 31;
     }
     else {
@@ -41,7 +41,7 @@ double calculateInterestAccrued(double DPR, int days, double remaining_balance) 
 
 // Define a function that helps calculate minimum payment in a month
 double calculateMinimumPay(double remaining_balance, double interest_accrued, double payment) {
-    if (remaining_balance >= payment) {
+    if (remaining_balance > payment) {
         return payment;
     }
     else {
@@ -55,14 +55,14 @@ double updateBalance(double remaining_balance, double payment, double interest_a
 }
 
 // Define a function that helps calculate how many months
-int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int start_month, double *total_payment) {
+int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int start_month) {
     int total_month = 0;
     double remaining_balance = INITIAL;
     double payment = 35.00;
     int month = start_month;
 
     // Loop until remain_balance is $0
-    while (remaining_balance > 0) {
+    while (remaining_balance > 0.00) {
 
         // Calculate the days in that month
         int days = calculateDaysInMonth(month);
@@ -70,17 +70,14 @@ int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int
         // Calculate the daily interest rate
         double DPR = calculateDPR(APR);
 
+        // Calculate the minimum payment needed
+        monthly_minimum = calculateMinimumPay(remaining_balance, monthly_minimum, payment);
+
         // Calculate the interest accrued for the current month
         double interest_accrued = calculateInterestAccrued(DPR, days, remaining_balance);
 
-        // Calculate the minimum payment needed
-        payment = calculateMinimumPay(remaining_balance, monthly_minimum, payment);
-
-        // Add to total_payment
-        *total_payment += payment;
-
         // Updating the remaining balance
-        remaining_balance = updateBalance(remaining_balance, payment, interest_accrued);
+        remaining_balance = updateBalance(remaining_balance, monthly_minimum, interest_accrued);
 
         // Increment total number of months by 1
         total_month += 1;
@@ -116,19 +113,41 @@ int main() {
     scanf("%d", &start_month);
 
     // Calculate total months
-    total_month = calculateTotalMonths(INITIAL, APR, payment, start_month, &total_payment);
+    total_month = calculateTotalMonths(INITIAL, APR, payment, start_month);
+
+    // Calculate the daily interest rate for the current month
+    DPR = calculateDPR(APR);
 
     // Printing the resulting table
     printf ("Table of credit card payoff with daily interest\n");
-    printf("Cycle   Month   Interest   Payment    Balance\n");
+    printf("Cycle   Month     Interest   Payment     Balance\n");
 
     // For loop to print the format
     for (int i = 0; i < total_month; i++) {
+        // Calculate the days in the current month
+        days = calculateDaysInMonth(start_month);
 
+        // Calculate the interest accrued for the current month
+        interest_accrued = calculateInterestAccrued(DPR, days, remaining_balance);
 
+        // Calculate the minimum payment needed for the current month
+        monthly_minimum = calculateMinimumPay(remaining_balance, interest_accrued, payment);
+        total_payment += monthly_minimum;
 
+        // Update the remaining balance for the next iteration
+        remaining_balance = updateBalance(remaining_balance, monthly_minimum, interest_accrued);
+        if (remaining_balance < 0.01) {
+            remaining_balance = 0.00;
+        }
 
-        printf("%3d%3d     $  %1.2f    $  %1.2f    $  %1.2f\n", i, month, interest_accrued, monthly_minimum, remaining_balance);
+        // Print the table row
+        printf("%5d   %5d     $  %1.2f    $  %1.2f    $  %1.2f\n", i, start_month, interest_accrued, monthly_minimum, remaining_balance);
+
+        // Increment the month for the next iteration
+        start_month++;
+        if (start_month > 12) {
+            start_month = 1;
+        }
     }
 
     // Conclusion text
