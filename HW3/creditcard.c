@@ -9,7 +9,7 @@
 
 // Helper Functions
 int calculateDaysInMonth(int month);
-double calculateDPR(float APT);
+double calculateDPR(float APR);
 double calculateInterestAccrued(double DPR, int days, double balance);
 double calculateMinimumPay(double remaining_balance, double monthly_minimum);
 double updateBalance(double remaining_balance, double payment, double interest_accrued);
@@ -26,6 +26,16 @@ int calculateDaysInMonth(int month) {
     else {
         return 30;
     }
+}
+
+// Define a function that helps calculate the DPR rate
+double calculateDPR(float APR) {
+    return (APR / 365);
+}
+
+// Define a function that helps calculate the interest accrued in a month
+double calculateInterestAccrued(double DPR, int days, double balance) {
+    return (balance * (DPR * days))
 }
 
 // Main Function
