@@ -9,22 +9,21 @@
 
 int main() {
 
-    // Assigning constant values
-    const int APR = 18; // percents
-    const double PAYMENT = 35.00; // dollars per month
-    const double INITIAL = 500.00; // dollars
-
     // Initializing variables
-    int days, total_month, start_month, cycle_end;
+    float APR = 0.18; 
+    int DPR;
+    double PAYMENT = 35.00; // dollars per month
+    const double INITIAL = 500.00; // dollars
+    int days, total_month, start_month, month, cycle_end;
     float interest;
     float balance = INITIAL;
-    float total_payment;
+    float total_payment = 0.00;
 
     // Welcome text
-    printf("Current APR = %d, monthly payment = $%.2f, initial payment = $%.2f\n", APR, PAYMENT, INITIAL);
+    printf("Current APR = %d%%, monthly payment = $%.2f, initial payment = $%.2f\n", (int)(APR*100), PAYMENT, INITIAL);
 
     // Ask for user's input of starting month
-    printf("Which month are you starting at: ");
+    printf("Which month are you starting at (1-12): ");
     scanf("%d", &start_month);
     printf("For how many months: ");
     scanf("%d", &total_month);
