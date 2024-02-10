@@ -30,6 +30,10 @@ int main() {
     scanf("%d", &total_month);
     cycle_end = total_month - 1;
 
+    // Printing the resulting table
+    printf ("Table of credit card payoff with daily interest\n");
+    printf("Cycle   Month   Interest   Payment   Balance\n");
+
     // For loop to print the format
 
     // Conclusion text
