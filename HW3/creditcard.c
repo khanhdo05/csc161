@@ -9,11 +9,12 @@
 
 // Helper Functions
 int calculateDaysInMonth(int month);
-double calculateDPR(float APR);
+double calculateDPR(double APR);
 double calculateInterestAccrued(double DPR, int days, double remaining_balance);
 double calculateMinimumPay(double remaining_balance, double interest_accrued, double payment);
 double updateBalance(double remaining_balance, double payment, double interest_accrued);
-int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int start_month);
+int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int start_month, double *total_payment);
+double calculateTotalPayment(double monthly_minimum);
 
 // Define a function that helps calculate how many days is in a month
 int calculateDaysInMonth(int month) {
@@ -29,7 +30,7 @@ int calculateDaysInMonth(int month) {
 }
 
 // Define a function that helps calculate the DPR rate
-double calculateDPR(float APR) {
+double calculateDPR(double APR) {
     return (APR / 365);
 }
 
@@ -54,7 +55,7 @@ double updateBalance(double remaining_balance, double payment, double interest_a
 }
 
 // Define a function that helps calculate how many months
-int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int start_month) {
+int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int start_month, double *total_payment) {
     int total_month = 0;
     double remaining_balance = INITIAL;
     double payment = 35.00;
@@ -74,6 +75,9 @@ int calculateTotalMonths(double INITIAL, double APR, double monthly_minimum, int
 
         // Calculate the minimum payment needed
         payment = calculateMinimumPay(remaining_balance, monthly_minimum, payment);
+
+        // Add to total_payment
+        *total_payment += payment;
 
         // Updating the remaining balance
         remaining_balance = updateBalance(remaining_balance, payment, interest_accrued);
@@ -111,14 +115,24 @@ int main() {
     printf("Which month are you starting at (1-12): ");
     scanf("%d", &start_month);
 
+    // Calculate total months
+    total_month = calculateTotalMonths(INITIAL, APR, payment, start_month, &total_payment);
+
     // Printing the resulting table
     printf ("Table of credit card payoff with daily interest\n");
-    printf("Cycle   Month   Interest   Payment   Balance\n");
+    printf("Cycle   Month   Interest   Payment    Balance\n");
 
     // For loop to print the format
+    for (int i = 0; i < total_month; i++) {
+
+
+
+
+        printf("%3d%3d     $  %1.2f    $  %1.2f    $  %1.2f\n", i, month, interest_accrued, monthly_minimum, remaining_balance);
+    }
 
     // Conclusion text
-    printf("After %d months, you paid $%.2f on an initial balance of $%.2f\n", calculateTotalMonths(INITIAL, APR, payment, start_month), total_payment, INITIAL);
+    printf("After %d months, you paid $%.2f on an initial balance of $%.2f\n", total_month, total_payment, INITIAL);
     
     return 0;
 }
