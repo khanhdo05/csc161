@@ -8,7 +8,7 @@
 #include <math.h>
 
 #define APR 0.18 
-#define payment 35.00    // dollars per month
+#define payment 35.00  // dollars per month
 #define INITIAL 500.00 // dollars
 
 // Helper Functions
