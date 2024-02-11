@@ -120,7 +120,7 @@ int main() {
 
     // Printing the resulting table
     printf ("Table of credit card payoff with daily interest\n");
-    printf("Cycle   Month     Interest   Payment     Balance\n");
+    printf("Cycle   Month     Interest     Payment     Balance\n");
 
     // For loop to print the format
     for (int i = 0; i < total_month; i++) {
@@ -141,7 +141,7 @@ int main() {
         }
 
         // Print the table row
-        printf("%5d   %5d     $  %1.2f    $  %1.2f    $  %1.2f\n", i, start_month, interest_accrued, monthly_minimum, remaining_balance);
+        printf("%5d%8d     $%7.2f    $%7.2f    $%7.2f\n", i, start_month, interest_accrued, monthly_minimum, remaining_balance);
 
         // Increment the month for the next iteration
         start_month++;
