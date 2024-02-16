@@ -1,0 +1,15 @@
+Counting Bigrams: Testing Plan
+
+List your test cases below. The first test case is provided so you have an example to work from. Every test should include a short name for the test, a description of what the test case covers, the input you will provide to the program, and the expected output. If your test case focuses on just part of the output you are welcome to abbreviate the expected output (note any omitted parts of the input with "..."). Please leave a blank line between test cases so they are visually separated.
+
+Tests:
+
+1. Short lowercase input
+This test checks to make sure the program handles a short input containing only lowercase letters.
+Input: "abc"
+Expected Output:
+"ab": 1
+"bc": 1
+Most common bigram: "ab"
+
+2. Your test here
