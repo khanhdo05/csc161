@@ -12,4 +12,43 @@ Expected Output:
 "bc": 1
 Most common bigram: "ab"
 
-2. Your test here
+2. Long lowercase input
+This test checks to make sure the program handles a long input containing only lowercase letters.
+Input: "antidisestablishmentarianism"
+Expected Output:
+"ab": 1
+"an": 2
+"ar": 1
+"bl": 1
+"di": 1
+"en": 1
+"es": 1
+"hm": 1
+"ia": 1
+"id": 1
+"is": 3
+"li": 1
+"me": 1
+"ni": 1
+"nt": 2
+"ri": 1
+"se": 1
+"sh": 1
+"sm": 1
+"st": 1
+"ta": 2
+"ti": 1
+Most common bigram: "is"
+
+3. A rhyming input with numbers and punctuation
+This test checks to make sure the program handles an input with numbers and punctuation letters.
+
+4. An even longer input with capital letters and punctuation
+This test checks to make sure the program handles a long input containing capital, lowercase, and punctuation letters.
+
+5. One-character input
+This test checks to make sure the program handles one-character input.
+
+6. No input
+This test checks to make sure the program handles no input.
+
