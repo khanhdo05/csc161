@@ -1,30 +1,33 @@
 #include <stdio.h>
 
+#define MAX 256 // Because there are 256 ASCII characters
+
 int main() {
   // Initiate variables
-  int len = 0;
-  char ch;
-  char message[len];
-
-  while ((ch = getchar()) != '\n') {
-    message[len] = ch;
-    len++;
-  }
-
-  char arr[2][len-1];
+  char prev = getchar();
+  char current;
+  int arr[MAX][MAX] = {0};
   
-  // Initialize the array with '0' in the second column
-  for (int i = 0; i < 2; i++) {
-      for (int j = 0; j < len - 1; j++) {
-          if (j == 1) { // Set the second column to '0'
-              arr[i][j] = '0';
-          } else {      // Set other columns as desired, here I'm just using a placeholder character 'x'
-              arr[i][j] = 'x';
-          }
-      }
+  // Read in characters until newline character
+  while ((current = getchar()) != '\n') {
+    // Increment the count for a combination of two ASCII character that makes a bigram
+    arr[prev][current]++;
+    //  Move onto the next character of the input message
+    prev = current;
   }
 
-  // Print the most common bigram
+  // Nested for loop to print out the bigrams and their counts
+  // Skip anything with count 0
+  for (int i = 0; i < MAX; i++) {
+    for (int j = 0; j < MAX; j++) {
+      if (arr[i][j] > 0) {
+        printf("'%c%c' : %d\n", i, j, arr[i][j]);
+      }
+    }
+  }
+
+
+  // Find and print the most common bigram
   printf("Most common bigram: 'bigram'\n");
 
   return 0;
