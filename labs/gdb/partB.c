@@ -24,13 +24,11 @@ int main() {
   // Loop over possible factors
   for (int factor=2; factor<LENGTH; factor++) {
     // Loop over multiples of the current factor
-    for (int multiple=factor; multiple < LENGTH; multiple += factor) {
+    for (int multiple=factor*2; multiple < LENGTH; multiple += factor) {
       // If we previously thought this number was prime, stop counting it
       if (is_prime[multiple]) {
         count--;
       }
-
-      // Mark the number as not prime
       is_prime[multiple] = false;
     }
   }
