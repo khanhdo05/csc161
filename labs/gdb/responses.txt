@@ -1,0 +1,39 @@
+Lab Report Week 5 
+
+Group: Khanh Do. Jenifer Silva. 
+
+Acknowledgement: N/A 
+
+ 
+
+Monday  
+
+A. 
+
+1) We give the program a function and it returns an incorrect value. 
+
+2) 
+
+2+8 = 10 correct 
+
+33-40 = 7 correct 
+
+6.9-3.2 invalid input (stores integers but we are giving it a float) 
+
+3) 
+
+(gdb) b 51 
+
+(gdb) b 53 
+
+Bugs identified: It plus everything and make it rhs, and then do lhs – rhs, which is like doing math by hand, it is putting parenthesis around 10 + 3 + 1 + 1 + 18. The program’s bug is: computing all the plus sign and get a right-hand-side value. Then evaluate left-hand-side minus right-hand-side. 
+
+B.  
+
+1) The program sets up an array, looping through it to check if false-not prime, true-prime, and keep count of it, and returns how many prime numbers exist in that range. 
+
+2) Run and saw the error. 
+
+3) The bug is that it correctly identifies the prime number, but when the program loops to count, it flips true to false, which make the program not count any prime numbers. 
+
+4) fix partB.c
