@@ -1,0 +1,73 @@
+﻿Lab Report Week 6
+Group: Khanh Do.Bonsen Yusuf. 
+Acknowledgment: N/A
+
+
+Monday
+A.
+1. When we compile two files into farm, and run it, output would be: 
+“Welcome to…
+…
+        Please enjoy”
+        It would also print ten times “cluck”
+2. We got an error message that implicit declaration of function is invalid.
+3. Fixed with writing function prototypes into the farm.c file
+B.
+1. chicken.h
+2. #include “chicken.h”
+3. It worked!
+4. We don’t have to add chicken.h to the clang command because it is included in both farm.c and chicken.c
+C.
+1. Done!
+2. Done!
+3. Done!
+4. It worked!
+D.
+1. Done!
+2. Done!
+3. Done!
+4. This doesn’t not work, as expected.
+E.
+1. Because make_sound is in util,h but util.h is included in both chicken.c and cow.c
+2. Done!
+3. This doesn’t fix the error.
+4. It worked!
+5. Done!
+
+
+Wednesday
+A.
+1. Makefile file. Done!
+2. Prediction: It doesn’t run the recipe because the target is ahead of the prerequisite.
+        Result: it prints “‘farm’ is up to date”
+3. Prediction: It run the recipe because one of the source files in the prerequisite is updated. 
+Result: Just as predicted, it runs the recipe
+4. Prediction: Throw an error.
+Result: It does throw an error
+5. We did got a compiler error!
+
+
+B. 
+1. Done!
+2. Done!
+3. Prediction: We don’t know
+Result: When we run ‘make clean’, it removes the ‘farm’ file.
+4. Done!
+
+
+C. 
+1. Done!
+2. Done!
+3. Done!
+
+
+D. 
+1. Which files will your existing Makefile recompile if you edit just sheep.c? Which files must be recompiled if you edit sheep.c? 
+farm.c and sheep.c
+2. Done!
+3. Done!
+4. Only the file sheep.c
+5. Done!
+
+
+Friday
