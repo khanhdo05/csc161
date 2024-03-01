@@ -9,6 +9,7 @@
 #define MAX_LENGTH 100
 
 // Helper functions
+// A function that check if input message is correct: lowercase, char, no symbol or num
 // A function that do the encoding process to 1 char a
 // A function that do the decoding process to 1 char b
 // A function that either takes in a or b to do the encoding/decoding process to the whole message by returning the table
