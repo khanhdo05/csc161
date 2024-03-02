@@ -2,8 +2,222 @@ Caesar Cipher: Testing Plan
 
 Tests:
 
-1. Description
-This test checks to make sure the program handles ...
-Input: ...
+1. Test Moderate Length, Encode
+This test checks to make sure the program handles test encryption of valid messages of moderate length
+Input: e, helloworld
 Expected Output:
-...
+This program encrypts and decrypts messages using the Caesar Cipher
+Type e to encode or d to decode a message: e
+Enter the string to encode: helloworld
+n =  0 : helloworld
+n =  1 : ifmmpxpsme
+n =  2 : jgnnqyqtnf
+n =  3 : khoorzruog
+n =  4 : lippsasvph
+n =  5 : mjqqtbtwqi
+n =  6 : nkrrucuxrj
+n =  7 : olssvdvysk
+n =  8 : pmttwewztl
+n =  9 : qnuuxfxaum
+n = 10 : rovvygybvn
+n = 11 : spwwzhzcwo
+n = 12 : tqxxaiadxp
+n = 13 : uryybjbeyq
+n = 14 : vszzckcfzr
+n = 15 : wtaadldgas
+n = 16 : xubbemehbt
+n = 17 : yvccfnficu
+n = 18 : zwddgogjdv
+n = 19 : axeehphkew
+n = 20 : byffiqilfx
+n = 21 : czggjrjmgy
+n = 22 : dahhksknhz
+n = 23 : ebiiltloia
+n = 24 : fcjjmumpjb
+n = 25 : gdkknvnqkc
+
+2. Test Moderate Length, Decode
+This test checks to make sure the program handles test decryption of valid messages of moderate length
+Input: d, dahhksknhz
+Expected Output:
+This program encrypts and decrypts messages using the Caesar Cipher
+Type e to encode or d to decode a message: d
+Enter the string to decode: dahhksknhz
+n =  0 : dahhksknhz
+n =  1 : czggjrjmgy
+n =  2 : byffiqilfx
+n =  3 : axeehphkew
+n =  4 : zwddgogjdv
+n =  5 : yvccfnficu
+n =  6 : xubbemehbt
+n =  7 : wtaadldgas
+n =  8 : vszzckcfzr
+n =  9 : uryybjbeyq
+n = 10 : tqxxaiadxp
+n = 11 : spwwzhzcwo
+n = 12 : rovvygybvn
+n = 13 : qnuuxfxaum
+n = 14 : pmttwewztl
+n = 15 : olssvdvysk
+n = 16 : nkrrucuxrj
+n = 17 : mjqqtbtwqi
+n = 18 : lippsasvph
+n = 19 : khoorzruog
+n = 20 : jgnnqyqtnf
+n = 21 : ifmmpxpsme
+n = 22 : helloworld
+n = 23 : gdkknvnqkc
+n = 24 : fcjjmumpjb
+n = 25 : ebiiltloia
+
+3. Test Very Short Length, Encode
+This test checks to make sure the program handles test encryption of valid input of very short length
+Input: e, a
+Expected Output:
+This program encrypts and decrypts messages using the Caesar Cipher
+Type e to encode or d to decode a message: e
+Enter the string to encode: a
+n =  0 : a
+n =  1 : b
+n =  2 : c
+n =  3 : d
+n =  4 : e
+n =  5 : f
+n =  6 : g
+n =  7 : h
+n =  8 : i
+n =  9 : j
+n = 10 : k
+n = 11 : l
+n = 12 : m
+n = 13 : n
+n = 14 : o
+n = 15 : p
+n = 16 : q
+n = 17 : r
+n = 18 : s
+n = 19 : t
+n = 20 : u
+n = 21 : v
+n = 22 : w
+n = 23 : x
+n = 24 : y
+n = 25 : z
+
+4. Test Very Short Length, Encode
+This test checks to make sure the program handles test decryption of valid input of very short length
+Input: e, a
+Expected Output:
+This program encrypts and decrypts messages using the Caesar Cipher
+Type e to encode or d to decode a message: d
+Enter the string to decode: a
+n =  0 : a
+n =  1 : z
+n =  2 : y
+n =  3 : x
+n =  4 : w
+n =  5 : v
+n =  6 : u
+n =  7 : t
+n =  8 : s
+n =  9 : r
+n = 10 : q
+n = 11 : p
+n = 12 : o
+n = 13 : n
+n = 14 : m
+n = 15 : l
+n = 16 : k
+n = 17 : j
+n = 18 : i
+n = 19 : h
+n = 20 : g
+n = 21 : f
+n = 22 : e
+n = 23 : d
+n = 24 : c
+n = 25 : b
+
+5. Test Very Long Length, Encode
+This test checks to make sure the program handles test encryption of valid messages of longer than 100 characters length
+Input: e, daudonkhongtoigiotnuocmatbebanglathuocphimnganvangcolucthayemnhutotroichathoinaoinaocotimdchhanhphucmotcauhoiemchangthetraloi
+Expected Output:
+This program encrypts and decrypts messages using the Caesar Cipher
+Type e to encode or d to decode a message: e
+Enter the string to encode: daudonkhongtoigiotnuocmatbebanglathuocphimnganvangcolucthayemnhutotroichathoinaoinaocotimdchhanhphucmotcauhoiemchangthetraloi
+n =  0 : daudonkhongtoigiotnuocmatbebanglathuocphimnganvangcolucthayemnhutotroichathoinaoinaocotimdchhanhphu
+n =  1 : ebvepolipohupjhjpuovpdnbucfcbohmbuivpdqijnohbowbohdpmvduibzfnoivupuspjdibuipjobpjobpdpujnediiboiqiv
+n =  2 : fcwfqpmjqpivqkikqvpwqeocvdgdcpincvjwqerjkopicpxcpieqnwevjcagopjwvqvtqkejcvjqkpcqkpcqeqvkofejjcpjrjw
+n =  3 : gdxgrqnkrqjwrljlrwqxrfpdwehedqjodwkxrfsklpqjdqydqjfroxfwkdbhpqkxwrwurlfkdwkrlqdrlqdrfrwlpgfkkdqkskx
+n =  4 : heyhsrolsrkxsmkmsxrysgqexfiferkpexlysgtlmqrkerzerkgspygxleciqrlyxsxvsmglexlsmresmresgsxmqhgllerltly
+n =  5 : ifzitspmtslytnlntyszthrfygjgfslqfymzthumnrslfsafslhtqzhymfdjrsmzytywtnhmfymtnsftnsfthtynrihmmfsmumz
+n =  6 : jgajutqnutmzuomouztauisgzhkhgtmrgznauivnostmgtbgtmiuraizngekstnazuzxuoingznuotguotguiuzosjinngtnvna
+n =  7 : khbkvurovunavpnpvaubvjthailihunshaobvjwoptunhuchunjvsbjaohfltuobavayvpjohaovpuhvpuhvjvaptkjoohuowob
+n =  8 : liclwvspwvobwqoqwbvcwkuibjmjivotibpcwkxpquvoivdivokwtckbpigmuvpcbwbzwqkpibpwqviwqviwkwbqulkppivpxpc
+n =  9 : mjdmxwtqxwpcxrprxcwdxlvjcknkjwpujcqdxlyqrvwpjwejwplxudlcqjhnvwqdcxcaxrlqjcqxrwjxrwjxlxcrvmlqqjwqyqd
+n = 10 : nkenyxuryxqdysqsydxeymwkdlolkxqvkdreymzrswxqkxfkxqmyvemdrkiowxredydbysmrkdrysxkysxkymydswnmrrkxrzre
+n = 11 : olfozyvszyreztrtzeyfznxlempmlyrwlesfznastxyrlyglyrnzwfnesljpxysfezecztnslesztylztylznzetxonsslysasf
+n = 12 : pmgpazwtazsfausuafzgaoymfnqnmzsxmftgaobtuyzsmzhmzsoaxgoftmkqyztgfafdauotmftauzmauzmaoafuypottmztbtg
+n = 13 : qnhqbaxubatgbvtvbgahbpzngoronatynguhbpcuvzatnainatpbyhpgunlrzauhgbgebvpungubvanbvanbpbgvzqpuunaucuh
+n = 14 : roircbyvcbuhcwuwchbicqaohpspobuzohvicqdvwabuobjobuqcziqhvomsabvihchfcwqvohvcwbocwbocqchwarqvvobvdvi
+n = 15 : spjsdczwdcvidxvxdicjdrbpiqtqpcvapiwjdrewxbcvpckpcvrdajriwpntbcwjidigdxrwpiwdxcpdxcpdrdixbsrwwpcwewj
+n = 16 : tqktedaxedwjeywyejdkescqjrurqdwbqjxkesfxycdwqdlqdwsebksjxqoucdxkjejheysxqjxeydqeydqesejyctsxxqdxfxk
+n = 17 : urlufebyfexkfzxzfkelftdrksvsrexcrkylftgyzdexremrextfcltkyrpvdeylkfkifztyrkyfzerfzerftfkzdutyyreygyl
+n = 18 : vsmvgfczgfylgayaglfmguesltwtsfydslzmguhzaefysfnsfyugdmulzsqwefzmlgljgauzslzgafsgafsguglaevuzzsfzhzm
+n = 19 : wtnwhgdahgzmhbzbhmgnhvftmuxutgzetmanhviabfgztgotgzvhenvmatrxfganmhmkhbvatmahbgthbgthvhmbfwvaatgaian
+n = 20 : xuoxihebihanicacinhoiwgunvyvuhafunboiwjbcghauhpuhawifownbusyghboninlicwbunbichuichuiwincgxwbbuhbjbo
+n = 21 : yvpyjifcjibojdbdjoipjxhvowzwvibgvocpjxkcdhibviqvibxjgpxocvtzhicpojomjdxcvocjdivjdivjxjodhyxccvickcp
+n = 22 : zwqzkjgdkjcpkecekpjqkyiwpxaxwjchwpdqkyldeijcwjrwjcykhqypdwuaijdqpkpnkeydwpdkejwkejwkykpeizyddwjdldq
+n = 23 : axralkhelkdqlfdflqkrlzjxqybyxkdixqerlzmefjkdxksxkdzlirzqexvbjkerqlqolfzexqelfkxlfkxlzlqfjazeexkemer
+n = 24 : bysbmlifmlermgegmrlsmakyrzczylejyrfsmanfgkleyltyleamjsarfywcklfsrmrpmgafyrfmglymglymamrgkbaffylfnfs
+n = 25 : cztcnmjgnmfsnhfhnsmtnblzsadazmfkzsgtnboghlmfzmuzmfbnktbsgzxdlmgtsnsqnhbgzsgnhmznhmznbnshlcbggzmgogt
+
+5. Test Very Long Length, decode
+This test checks to make sure the program handles test decryption of valid messages of longer than 100 characters length
+Input: e, nuocmatcuroitrongvotinhemthuaminhmotvaichinhvianhdaucanemdungkhonganhnguoitathuongnhactenemnhudaiminhtinhdaiminhtinhaemhoathancunghayroi
+This program encrypts and decrypts messages using the Caesar Cipher
+Type e to encode or d to decode a message: d
+Enter the string to decode: nuocmatcuroitrongvotinhemthuaminhmotvaichinhvianhdaucanemdungkhonganhnguoitathuongnhactenemnhudaiminhtinhdaiminhtinhaemhoathancunghayroi
+n =  0 : nuocmatcuroitrongvotinhemthuaminhmotvaichinhvianhdaucanemdungkhonganhnguoitathuongnhactenemnhudaimi
+n =  1 : mtnblzsbtqnhsqnmfunshmgdlsgtzlhmglnsuzhbghmguhzmgcztbzmdlctmfjgnmfzmgmftnhszsgtnmfmgzbsdmdlmgtczhlh
+n =  2 : lsmakyraspmgrpmletmrglfckrfsykglfkmrtygafglftgylfbysaylckbsleifmleylflesmgryrfsmlelfyarclcklfsbygkg
+n =  3 : krlzjxqzrolfqolkdslqfkebjqerxjfkejlqsxfzefkesfxkeaxrzxkbjarkdhelkdxkekdrlfqxqerlkdkexzqbkbjkeraxfjf
+n =  4 : jqkyiwpyqnkepnkjcrkpejdaipdqwiejdikprweydejdrewjdzwqywjaizqjcgdkjcwjdjcqkepwpdqkjcjdwypajaijdqzweie
+n =  5 : ipjxhvoxpmjdomjibqjodiczhocpvhdichjoqvdxcdicqdvicyvpxvizhypibfcjibvicibpjdovocpjibicvxozizhicpyvdhd
+n =  6 : hoiwgunwolicnlihapinchbygnbougchbginpucwbchbpcuhbxuowuhygxohaebihauhbhaoicnunboihahbuwnyhyghboxucgc
+n =  7 : gnhvftmvnkhbmkhgzohmbgaxfmantfbgafhmotbvabgaobtgawtnvtgxfwngzdahgztgagznhbmtmanhgzgatvmxgxfganwtbfb
+n =  8 : fmgueslumjgaljgfynglafzwelzmseafzeglnsauzafznasfzvsmusfwevmfyczgfysfzfymgalslzmgfyfzsulwfwefzmvsaea
+n =  9 : elftdrktlifzkifexmfkzeyvdkylrdzeydfkmrztyzeymzreyurltrevdulexbyfexreyexlfzkrkylfexeyrtkvevdeylurzdz
+n = 10 : dkescqjskheyjhedwlejydxucjxkqcydxcejlqysxydxlyqdxtqksqductkdwaxedwqdxdwkeyjqjxkedwdxqsjuducdxktqycy
+n = 11 : cjdrbpirjgdxigdcvkdixcwtbiwjpbxcwbdikpxrwxcwkxpcwspjrpctbsjcvzwdcvpcwcvjdxipiwjdcvcwpritctbcwjspxbx
+n = 12 : bicqaohqifcwhfcbujchwbvsahvioawbvachjowqvwbvjwobvroiqobsaribuyvcbuobvbuicwhohvicbubvoqhsbsabvirowaw
+n = 13 : ahbpzngphebvgebatibgvaurzguhnzvauzbginvpuvauivnauqnhpnarzqhatxubatnauathbvgnguhbataunpgrarzauhqnvzv
+n = 14 : zgaoymfogdaufdazshafuztqyftgmyuztyafhmuotuzthumztpmgomzqypgzswtazsmztzsgaufmftgazsztmofqzqyztgpmuyu
+n = 15 : yfznxlenfczteczyrgzetyspxesflxtysxzegltnstysgtlysolfnlypxofyrvszyrlysyrfztelesfzyryslnepypxysfoltxt
+n = 16 : xeymwkdmebysdbyxqfydsxrowdrekwsxrwydfksmrsxrfskxrnkemkxownexquryxqkxrxqeysdkdreyxqxrkmdoxowxrenksws
+n = 17 : wdxlvjcldaxrcaxwpexcrwqnvcqdjvrwqvxcejrlqrwqerjwqmjdljwnvmdwptqxwpjwqwpdxrcjcqdxwpwqjlcnwnvwqdmjrvr
+n = 18 : vcwkuibkczwqbzwvodwbqvpmubpciuqvpuwbdiqkpqvpdqivplickivmulcvospwvoivpvocwqbibpcwvovpikbmvmuvpcliquq
+n = 19 : ubvjthajbyvpayvuncvapuoltaobhtpuotvachpjopuocphuokhbjhultkbunrovunhuounbvpahaobvunuohjalultuobkhptp
+n = 20 : tauisgziaxuozxutmbuzotnksznagsotnsuzbgoinotnbogtnjgaigtksjatmqnutmgtntmauozgznautmtngizktkstnajgoso
+n = 21 : szthrfyhzwtnywtslatynsmjrymzfrnsmrtyafnhmnsmanfsmifzhfsjrizslpmtslfsmslztnyfymztslsmfhyjsjrsmzifnrn
+n = 22 : rysgqexgyvsmxvsrkzsxmrliqxlyeqmrlqsxzemglmrlzmerlheygeriqhyrkolsrkerlrkysmxexlysrkrlegxiriqrlyhemqm
+n = 23 : qxrfpdwfxurlwurqjyrwlqkhpwkxdplqkprwydlfklqkyldqkgdxfdqhpgxqjnkrqjdqkqjxrlwdwkxrqjqkdfwhqhpqkxgdlpl
+n = 24 : pwqeocvewtqkvtqpixqvkpjgovjwcokpjoqvxckejkpjxkcpjfcwecpgofwpimjqpicpjpiwqkvcvjwqpipjcevgpgopjwfckok
+n = 25 : ovpdnbudvspjuspohwpujoifnuivbnjoinpuwbjdijoiwjboiebvdbofnevohlipohboiohvpjubuivpohoibdufofnoivebjnj
+
+6. Test Invalid Input, not e or d
+This test checks to make sure the program handles test invalid mode
+Input: p
+Expected Output:
+This program encrypts and decrypts messages using the Caesar Cipher
+Type e to encode or d to decode a message: p
+Valid options are 'e' to encode or 'd' to decode
+
+6. Test Invalid Input, message contains number or special characters
+This test checks to make sure the program handles test invalid message input
+Input: e, hello 4@p
+Expected Output:
+This program encrypts and decrypts messages using the Caesar Cipher
+Type e to encode or d to decode a message: e
+Enter the string to encode: hello 4@p
+Message should only contain alphabet characters, lowercase
