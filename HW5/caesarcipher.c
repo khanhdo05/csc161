@@ -63,6 +63,7 @@ int main(void) {
     }
     arr_message[len] = '\0'; // Null-terminate 
 
+    // Check if message input contains invalid character
     for (int i = 0; arr_message[i] != '\0'; i++) {
         if (arr_message[i] < 'a' || arr_message[i] > 'z') { // Check if outside of 'a' to 'z'
             printf("Message should only contain alphabet characters, lowercase\n");
