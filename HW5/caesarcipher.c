@@ -40,7 +40,7 @@ int main(void) {
     // Initialize variables
     int len = 0;
     char arr_message[MAX_LENGTH], temp_message[MAX_LENGTH];
-    char ch, mes;
+    char ch;
 
     // Print welcoming message
     printf("This program encrypts and decrypts messages using the Caesar Cipher\n");
