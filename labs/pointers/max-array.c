@@ -7,22 +7,37 @@
 // number of elements to be processed in array
 #define LENGTH 10
 
-// Calculate and return the maximal number in an array
-double find_max(double array[], int array_size) {
-  // start with first array value
-  double max = array[0];
+// // Calculate and return the maximal number in an array
+// double find_max(double array[], int array_size) {
+//   // start with first array value
+//   double max = array[0];
   
-  // compare maximum with previous values, updating as needed
-  for (int j = 1; j < array_size; j++) {
-    if (array[j] > max) {
-      max = array[j];
-    }
-  }
+//   // compare maximum with previous values, updating as needed
+//   for (int j = 1; j < array_size; j++) {
+//     if (array[j] > max) {
+//       max = array[j];
+//     }
+//   }
 
-  return max;
-}
+//   return max;
+// }
 
-// Calculate and return the maximal number in an array
+// A.2
+// double find_max_pointer(double* array, int array_size) {
+//   // start with first array value
+//   double max = array[0];
+  
+//   // compare maximum with previous values, updating as needed
+//   for (int j = 1; j < array_size; j++) {
+//     if (array[j] > max) {
+//       max = array[j];
+//     }
+//   }
+
+//   return max;
+// }
+
+// A.3
 double find_max_pointer(double* array, int array_size) {
   // start with first array value
   double max = *array;
