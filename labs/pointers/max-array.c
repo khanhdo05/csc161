@@ -28,9 +28,9 @@ double find_max_pointer(double* array, int array_size) {
   double max = *array;
   
   // compare maximum with previous values, updating as needed
-  for (int* j = array; j < (array + array_size); j++) {
-    if (j > array) {
-      max = *array;
+  for (double* j = array; j < (array + array_size); j++) {
+    if (*j > max) {
+      max = *j;
     }
   }
 
