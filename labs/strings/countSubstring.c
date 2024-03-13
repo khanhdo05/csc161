@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     char *currentPosition = sentence;
 
     // Iterate over the sentence to find all occurrences of the word
-    while ((currentPosition = strstr(currentPosition, word)) != NULL) {
+    while ((currentPosition = strstr(currentPosition, word)) != NULL) { // Iterate until strstr finds no more occurences of the word
         count++;
         currentPosition++; // Move pointer to continue searching
     }
