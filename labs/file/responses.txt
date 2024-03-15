@@ -1,0 +1,106 @@
+﻿Lab Report Week 8
+Group: Khanh Do. Aaron Cannon
+
+
+Monday
+
+
+A.
+1. Prediction:
+First 3 characters in each array
+        First: Col
+        Second: Wor
+        Third: Com
+        Fourth: Not sure, fourth is a memory address (Correct: Wor)
+        Fifth: Not sure, fifth is a memory address (Correct: Hel)
+Variable addresses and array base addresses
+        Not sure how we would know what the address looks like (Correct: variabl addresses and array base addresses are the same)
+Variables printed as strings
+        First: Cold
+        Second: World
+        Third: Computer Science (Result is Computer SciencepWorld because when we initialize third, we need to leave 17 bits of space to store the null character)
+        Fourth: World
+        Fifth: Hello
+2. Prediction: Only print the first 3 characters
+Correct but the fifth one doesn’t change because it’s not being modified.
+3. Prediction: We can’t reference index of a pointer, and we cannot modify a string literal
+Correct: Segmentation Fault
+4. Prediction: Error because pointer fifth has become a constant
+Result: error: read only var is not assignable
+
+
+B.
+1. Valid: char *chimpanzee = "animal"; char giraffe[8] = "animal";
+char elephant[10];
+elephant = "animal";
+2. Valid declarations differ: have appropriate space to store the characters in the array, initialized the string.
+3. When we switch fox and giraffe, unexpected behavior might happen, elements of fox will go to the end of giraffe because there’s extra space?
+
+
+C.
+1. strlen (computerscience): 9
+strlen (isawesome): 15
+computerscience: isawesome
+isawesome: computerscience
+2. Done
+3. Correct
+4. strlen(computerscience): 0
+computerscience: (unexpected behavior)
+5. Correct
+6. Prediction: Concatenate the strings: computerscienceisawesome
+Correct
+If change isawesome bound to 32, print null in between two strings
+Result: it ignore the null character
+The strcat func connects the strings together, and ignore the null
+
+
+D.
+stringreverse.c
+
+
+E.
+1.
+1. man string
+2. man strcmp. Two different ways to compare 2 strings: strcmp or strncmp
+3. const char *s1 and const char *s2 and size_t n
+4. strcat appends the src string to the destination string, overwriting terminating null byte.
+2.
+1. Done
+2. Error: redefinition of array size
+
+
+Wednesday
+A.
+1. The program print:
+1. arg 0: ./args
+arg 1: +
+arg 2: 4.0
+arg 3: 4.5
+2. arg 0: ./args
+arg 1: sum
+arg 2: text
+arg 3: 2
+3. arg 0: ./args
+arg 1: encrypt
+arg 2: “This message”
+2. 
+* The purpose of atoi is converting the initial portion of the string pointed to by nptr to int.
+* The purpose of strtod is converting the initial portion of the string pointed to by nptr to double, float, and long double representation.
+
+
+Friday
+A.
+1. Done
+2. Done
+3. Done
+4. Done
+5. It says bad address. Done
+6. Prediction: We use fprintf instead of perror because we want to customize the error message.
+When we try compiling and running it, it adds a ‘success’ message.
+7. Done
+8. Done
+
+
+B.
+1. Done
+3. Done
