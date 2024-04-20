@@ -1,3 +1,10 @@
+
+/**
+ * A simple grocery list program. 
+ * The program will use a dynamic array to keep track of items on the list, which include both a name and a count.
+ * \author Khanh Do
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -76,7 +83,12 @@ int main(void) {
             printf("What item would you like to add?\n");
             scanf("%s", item_input);
             printf("How many would you like?\n");
-            scanf("%d", &quantity_input);
+            // Check if input is a valid integer
+            while ((scanf("%d", &quantity_input) != 1) || (quantity_input < 0)) {
+                while (getchar() != '\n');
+                printf("Invalid input for quantity. Please enter a non-negative integer.\n");
+                printf("How many would you like?\n");
+            }
             add_item(&grocery_list, item_input, quantity_input);
         } else if (strcmp(command_type, "print") == 0) {
             print_list(&grocery_list);
@@ -86,5 +98,6 @@ int main(void) {
     }
 
     free_list(&grocery_list);
+
     return 0;
 }
