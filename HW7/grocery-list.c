@@ -1,13 +1,7 @@
-
-/**
- * A simple grocery list program. 
- * The program will use a dynamic array to keep track of items on the list, which include both a name and a count.
- * \author Khanh Do
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+
 #define MAX_LENGTH_INPUT 128
 
 typedef struct {
@@ -15,21 +9,53 @@ typedef struct {
     int count;
 } GroceryItem;
 
-// add_command func that takes and returns a char pointer + an int pointer
-void add_command(char * item_input, int * quantity_input) {
-    printf("What item would you like to add?\n");
-    scanf("%s", item_input);
+typedef struct {
+    GroceryItem *items;
+    size_t size;
+    size_t capacity;
+} GroceryList;
 
-    printf("How many would you like?\n");
-    scanf("%d", quantity_input);
+void initialize_list(GroceryList *list) {
+    list->items = NULL;
+    list->size = 0;
+    list->capacity = 0;
 }
 
-// use add_command to store stuff in a 2-d array or a struct
+void add_item(GroceryList *list, const char *name, int count) {
+    if (list->size >= list->capacity) {
+        list->capacity = (list->capacity == 0) ? 1 : list->capacity * 2;
+        list->items = realloc(list->items, list->capacity * sizeof(GroceryItem));
+        if (list->items == NULL) {
+            fprintf(stderr, "Memory allocation failed.\n");
+            exit(1);
+        }
+    }
+    strcpy(list->items[list->size].name, name);
+    list->items[list->size].count = count;
+    list->size++;
+}
+
+void print_list(const GroceryList *list) {
+    if (list->size == 0) {
+        printf("The list is empty.\n");
+    } else {
+        printf("Grocery List:\n");
+        for (size_t i = 0; i < list->size; i++) {
+            printf("%s: %d\n", list->items[i].name, list->items[i].count);
+        }
+    }
+}
+
+void free_list(GroceryList *list) {
+    free(list->items);
+    list->items = NULL;
+    list->size = 0;
+    list->capacity = 0;
+}
 
 int main(void) {
-    GroceryItem* grocery_list = NULL;
-    size_t list_size = 0;
-    size_t list_capacity = 0;
+    GroceryList grocery_list;
+    initialize_list(&grocery_list);
 
     char command_type[100];
     char item_input[MAX_LENGTH_INPUT];
@@ -37,7 +63,6 @@ int main(void) {
 
     printf("What do you want to do? Type one of the following commands:\n"
            "\tadd: add an item\n"
-           "\tlookup: look up an item\n"
            "\tprint: print the list\n"
            "\texit: exit the program\n\n");
 
@@ -48,24 +73,18 @@ int main(void) {
         if (strcmp(command_type, "exit") == 0) {
             break;
         } else if (strcmp(command_type, "add") == 0) {
-            add_command(item_input, &quantity_input);
+            printf("What item would you like to add?\n");
+            scanf("%s", item_input);
+            printf("How many would you like?\n");
+            scanf("%d", &quantity_input);
+            add_item(&grocery_list, item_input, quantity_input);
         } else if (strcmp(command_type, "print") == 0) {
-            //print_list(grocery_list, list_size);
-            printf("placeholder print\n");
-        } else if (strcmp(command_type, "lookup") == 0) {
-            //lookup_item(grocery_list);
-            printf("placeholder lookup\n");
+            print_list(&grocery_list);
         } else {
             printf("Unrecognized command.\n");
-            printf("What do you want to do? Type one of the following commands:\n"
-                    "\tadd: add an item\n"
-                    "\tlookup: look up an item\n"
-                    "\tprint: print the list\n"
-                    "\texit: exit the program\n\n");
         }
     }
 
-    // Free dynamically allocated memory
-    free(grocery_list);
+    free_list(&grocery_list);
     return 0;
 }
