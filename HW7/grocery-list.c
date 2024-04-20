@@ -35,29 +35,37 @@ int main(void) {
     char item_input[MAX_LENGTH_INPUT];
     int quantity_input;
 
-    printf("What do you want to do? Type one of the following commands:\n\tadd: add an item\n\tlookup: look up an item\n\tprint: print the list\n\texit: exit the program\n\n");
-    printf("Command: ");
-    scanf("%s", command_type);
+    printf("What do you want to do? Type one of the following commands:\n"
+           "\tadd: add an item\n"
+           "\tlookup: look up an item\n"
+           "\tprint: print the list\n"
+           "\texit: exit the program\n\n");
 
-    while (strcmp(command_type, "exit") != 0) {
-        if (strcmp(command_type, "add") == 0) {
+    while (1) {
+        printf("Command: ");
+        scanf("%s", command_type);
+
+        if (strcmp(command_type, "exit") == 0) {
+            break;
+        } else if (strcmp(command_type, "add") == 0) {
             add_command(item_input, &quantity_input);
         } else if (strcmp(command_type, "print") == 0) {
             //print_list(grocery_list, list_size);
-            printf("print_listplaceholder\n");
+            printf("placeholder print\n");
         } else if (strcmp(command_type, "lookup") == 0) {
-            //lookup_item(grocery_list, item);
-            printf("lookupplaceholder\n");
+            //lookup_item(grocery_list);
+            printf("placeholder lookup\n");
         } else {
-            printf("Unrecognized command. \n");
-            printf("What do you want to do? Type one of the following commands:\n\tadd: add an item\n\tlookup: look up an item\n\tprint: print the list\n\texit: exit the program\n\n");
-            printf("Command: ");
-            scanf("%s", command_type);
+            printf("Unrecognized command.\n");
+            printf("What do you want to do? Type one of the following commands:\n"
+                    "\tadd: add an item\n"
+                    "\tlookup: look up an item\n"
+                    "\tprint: print the list\n"
+                    "\texit: exit the program\n\n");
         }
-        printf("Command: ");
-        scanf("%s", command_type);
     }
-    
+
+    // Free dynamically allocated memory
     free(grocery_list);
     return 0;
 }
