@@ -134,6 +134,10 @@ int main(void) {
                 printf("Invalid input for quantity. Please enter a non-negative integer.\n");
                 printf("How many would you like?\n");
             }
+
+            // Clear input buffer
+            while (getchar() != '\n');
+
             add_item(&grocery_list, item_input, quantity_input);
 
         // Handles 'print' command
@@ -146,6 +150,9 @@ int main(void) {
             printf("What item are you looking for?\n");
             scanf("%s", item_to_lookup);
             lookup(&grocery_list, item_to_lookup);
+            
+            // Clear input buffer
+            while (getchar() != '\n');
 
         // Handles invalid command
         } else {
