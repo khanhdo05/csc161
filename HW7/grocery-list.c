@@ -53,6 +53,18 @@ void print_list(const GroceryList *list) {
     }
 }
 
+void lookup(const GroceryList *list, char *item_to_lookup) {
+    for (size_t i = 0; i < list->size; i++) {
+        if (strcmp(list->items[i].name, item_to_lookup) != 0) {
+            printf("I didn't find %s on the list.\n", item_to_lookup);
+            break;
+        } else {
+            printf("You need %d %s on the list.\n", list->items[i].count, list->items[i].name);
+            break;
+        }
+    }
+}
+
 void free_list(GroceryList *list) {
     free(list->items);
     list->items = NULL;
@@ -66,6 +78,7 @@ int main(void) {
 
     char command_type[100];
     char item_input[MAX_LENGTH_INPUT];
+    char item_to_lookup[MAX_LENGTH_INPUT];
     int quantity_input;
 
     printf("What do you want to do? Type one of the following commands:\n"
@@ -93,6 +106,10 @@ int main(void) {
             add_item(&grocery_list, item_input, quantity_input);
         } else if (strcmp(command_type, "print") == 0) {
             print_list(&grocery_list);
+        } else if (strcmp(command_type, "lookup") == 0){
+            printf("What item are you looking for?\n");
+            scanf("%s", item_to_lookup);
+            lookup(&grocery_list, item_to_lookup);
         } else {
             printf("Unrecognized command.\n");
         }
