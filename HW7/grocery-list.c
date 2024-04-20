@@ -37,9 +37,18 @@ void add_item(GroceryList *list, const char *name, int count) {
             exit(1);
         }
     }
+
+    for (size_t i = 0; i < list->size; i++) {
+        if (strcmp(list->items[i].name, name) == 0) {
+            list->items[i].count += count;
+            return;
+        }
+    }
+
     strcpy(list->items[list->size].name, name);
     list->items[list->size].count = count;
     list->size++;
+    return;
 }
 
 void print_list(const GroceryList *list) {
