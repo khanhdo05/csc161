@@ -85,6 +85,7 @@ int main(void) {
             printf("How many would you like?\n");
             // Check if input is a valid integer
             while ((scanf("%d", &quantity_input) != 1) || (quantity_input < 0)) {
+                // Clear input buffer
                 while (getchar() != '\n');
                 printf("Invalid input for quantity. Please enter a non-negative integer.\n");
                 printf("How many would you like?\n");
