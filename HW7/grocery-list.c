@@ -64,14 +64,13 @@ void print_list(const GroceryList *list) {
 
 void lookup(const GroceryList *list, char *item_to_lookup) {
     for (size_t i = 0; i < list->size; i++) {
-        if (strcmp(list->items[i].name, item_to_lookup) != 0) {
-            printf("I didn't find %s on the list.\n", item_to_lookup);
-            break;
-        } else {
+        if (strcmp(list->items[i].name, item_to_lookup) == 0) {
             printf("You need %d %s on the list.\n", list->items[i].count, list->items[i].name);
-            break;
+            return;
         }
     }
+    printf("I didn't find %s on the list.\n", item_to_lookup);
+    return;
 }
 
 void free_list(GroceryList *list) {
@@ -85,7 +84,7 @@ int main(void) {
     GroceryList grocery_list;
     initialize_list(&grocery_list);
 
-    char command_type[100];
+    char command_type[MAX_LENGTH_INPUT];
     char item_input[MAX_LENGTH_INPUT];
     char item_to_lookup[MAX_LENGTH_INPUT];
     int quantity_input;
@@ -93,10 +92,10 @@ int main(void) {
     printf("What do you want to do? Type one of the following commands:\n"
            "\tadd: add an item\n"
            "\tprint: print the list\n"
-           "\texit: exit the program\n\n");
+           "\texit: exit the program\n");
 
     while (1) {
-        printf("Command: ");
+        printf("\nCommand: ");
         scanf("%s", command_type);
 
         if (strcmp(command_type, "exit") == 0) {
