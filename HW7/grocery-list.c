@@ -31,7 +31,7 @@ int main(void) {
     size_t list_size = 0;
     size_t list_capacity = 0;
 
-    char command_type[7];
+    char command_type[100];
     char item_input[MAX_LENGTH_INPUT];
     int quantity_input;
 
@@ -40,13 +40,22 @@ int main(void) {
     scanf("%s", command_type);
     printf("%s\n", command_type);
 
-    if (strcmp(command_type, "add") == 0) {
-        add_command(item_input, &quantity_input);
+    while (strcmp(command_type, "exit") != 0) {
+        if (strcmp(command_type, "add") == 0) {
+            add_command(item_input, &quantity_input);
+        } else if (strcmp(command_type, "print") == 0) {
+            //print_list(grocery_list, list_size);
+            printf("Hey");
+        } else {
+            printf("Unrecognized command. \n");
+            printf("What do you want to do? Type one of the following commands:\n\tadd: add an item\n\tlookup: look up an item\n\tprint: print the list\n\texit: exit the program\n\n");
+            printf("Command: ");
+            scanf("%s", command_type);
+        }
+        printf("Command: ");
+        scanf("%s", command_type);
     }
-
-    if (strcmp(command_type, "exit") == 0) {
-        return 0;
-    }
-
+    
+    free(grocery_list);
     return 0;
 }
