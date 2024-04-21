@@ -1,4 +1,3 @@
-
 /**
  * A simple grocery list program. 
  * The program will use a dynamic array to keep track of items on the list, which include both a name and a count.
@@ -58,7 +57,6 @@ void add_item(GroceryList *list, const char *name, int count) {
     list->size++;
     return;
 }
-
 
 void print_list(const GroceryList *list) {
     if (list->size == 0) {
