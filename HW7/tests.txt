@@ -2,12 +2,538 @@ Grocery List: Testing Plan
 
 Tests:
 
-A. TEST BASIC OPERATION
+A. TEST BASIC OPERATION - ADD COMMAND
 1. Test add one item, look up that item, print the list, exit
 This test checks to make sure the program handles basic operation with one input item
 
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
 
-B. TEST INVALID input
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+10000
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: lookup
+What item are you looking for?
+apples
+You need 10000 apples.
+
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: print
+Grocery List:
+        apples: 10000
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+2. Test add many items, with one item repeats, print the list
+This test checks to make sure that the program handles recording several items being added, and items that already exist will increase in amount. We'll print out the list. Look up feature will be tested in a different test.
+
+./grocery-list
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+100
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+onions
+How many would you like?
+34
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+chickens
+How many would you like?
+4
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+onions
+How many would you like?
+16
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: print
+Grocery List:
+        apples: 100
+        onions: 50
+        chickens: 4
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+B. TEST BASIC OPERATION - LOOKUP COMMAND
+1. Test no item found
+This test checks to make sure that the program handles the lookup command when user input doesn't match any item that has been added
+
+./grocery-list
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: lookup
+What item are you looking for?
+apples
+I didn't find apples on the list.
+
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+2. Test lookup the first item on the list, last item on the list, any item on the list
+This test checks to make sure that the program correctly look up the item regardless of its position in the list
+./grocery-list
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+120
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+onions
+How many would you like?
+43
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+pineapples
+How many would you like?
+34
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: lookup
+What item are you looking for?
+apples
+You need 120 apples.
+
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: lookup
+What item are you looking for?
+onions
+You need 43 onions.
+
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: lookup
+What item are you looking for?
+pineapples
+You need 34 pineapples.
+
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+3. Test look up items that count has been updated
+This test checks to make sure that when an item's count is updated, lookup prints out the correct updated value
+
+./grocery-list
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+12
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+4
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: lookup
+What item are you looking for?
+apples
+You need 16 apples.
+
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+C. TEST BASIC OPERATION - PRINT COMMAND
+1. Test print an empty list
+This test checks to make sure that the print command prints out the correct message when user try to print an empty list, then correctly print out the updated list if new items are added.
+
+./grocery-list
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: print
+The list is empty.
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+100
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: print
+Grocery List:
+        apples: 100
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+2. Test print out a long list
+This test checks to make sure the program can handle printing a long list, print after an item is updated, print after several items are added
+
+./grocery-list
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+12
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+chips
+How many would you like?
+4
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+shirts
+How many would you like?
+89
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+soda
+How many would you like?
+4
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+milk
+How many would you like?
+1
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: print
+Grocery List:
+        apples: 12
+        chips: 4
+        shirts: 89
+        soda: 4
+        milk: 1
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+toy
+How many would you like?
+34
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+shoes
+How many would you like?
+3
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+onions
+How many would you like?
+45
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+onions
+How many would you like?
+2
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+pineapples
+How many would you like?
+12000
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: print
+Grocery List:
+        apples: 12
+        chips: 4
+        shirts: 89
+        soda: 4
+        milk: 1
+        toy: 34
+        shoes: 3
+        onions: 47
+        pineapples: 12000
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+D. TEST BASIC OPERATION - EXIT COMMAND
+We have tested exit on every cases
+1. Test exit without using any other commands
+This test checks to make sure the program exit smoothly when we don't use other commands at all for several runs
+
+./grocery-list 
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+(base) khoai@khoai:~/dev/csc161/HW7$ ./grocery-list 
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+(base) khoai@khoai:~/dev/csc161/HW7$ ./grocery-list 
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+E. TEST INVALID input
 1. Test unrecognized commands at the menu
 This test checks to make sure the program handles unrecognized commands input from user at the menu
 
@@ -151,3 +677,256 @@ Happy grocery shopping!
 This test checks to make sure that the program prints an error message and prompts the user to enter a valid number when user input a negative number.
 This test will also make sure that when lookup or print, the count of the item is correctly recorded (not the negative one).
 
+./grocery-list
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+-300
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+-2
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+100
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: lookup
+What item are you looking for?
+apples
+You need 100 apples.
+
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: print
+Grocery List:
+        apples: 100
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+4. Test non-numeric value during add - "How many would you like?"
+This test checks to make sure that the program handles non-numeric value correctly
+
+./grocery-list
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+happy
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+two
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+none?@#
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+&
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+90
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: lookup
+What item are you looking for?
+apples
+You need 180 apples.
+
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+5. Test non-numeric and negative values at the same run
+This test checks to make sure that the program behaves the same when we input non-numeric or negative several times
+
+./grocery-list
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+onions
+How many would you like?
+-3
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+many
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+?
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+-4
+Invalid input for quantity. Please enter a non-negative integer.
+How many would you like?
+1
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: lookup
+What item are you looking for?
+onions
+You need 1 onions.
+
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: print
+Grocery List:
+        onions: 1
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+
+F. TEST WITH ADDRESS SANITIZER
+
+$ clang -g -fsanitize=address -o grocery-list grocery-list.c
+$ ASAN_OPTIONS=detect_leaks=0 ./grocery-list 
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+apples
+How many would you like?
+10
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+pineapples
+How many would you like?
+2
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+onions
+How many would you like?
+2
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: add
+What item would you like to add?
+pineapples
+How many would you like?
+1
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: print
+Grocery List:
+        apples: 10
+        pineapples: 3
+        onions: 2
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
+$ ASAN_OPTIONS=detect_leaks=0 ./grocery-list 
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+$ ASAN_OPTIONS=detect_leaks=0 ./grocery-list 
+
+What do you want to do? Type one of the following commands:
+        add: add an item
+        lookup: look up an item
+        print: print the list
+        exit: exit the program
+
+Command: exit
+Happy grocery shopping!
