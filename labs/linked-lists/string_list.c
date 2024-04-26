@@ -105,10 +105,35 @@ size_t string_list_count(const string_list_t* lst, const char* str) {
  * \returns true if the value was found and removed, and false otherwise
  */
 bool string_list_remove(string_list_t* lst, const char* str) {
-  // TODO: implement me
-  printf("NOT IMPLEMENTED\n");
-  return false;
+    string_node_t *prev = NULL;
+    string_node_t *curr = lst->head;
+
+    // Traverse the list to find the node to remove
+    while (curr != NULL && strcmp(curr->value, str) != 0) {
+        prev = curr;
+        curr = curr->next;
+    }
+
+    // When the str input is not found, return false
+    if (curr == NULL) {
+        return false;
+    }
+
+    // Update the pointers to remove the node from the list
+    if (prev == NULL) {
+        // If the node found is the head
+        lst->head = curr->next;
+    } else {
+        // If the node found is in the middle
+        prev->next = curr->next;
+    }
+
+    free(curr->value);
+    free(curr);
+
+    return true;
 }
+
 
 /**
  * Calculate the length of a string list

@@ -57,7 +57,7 @@ int main() {
   // Use getline to read commands from the user
   char* line = NULL;
   size_t line_capacity = 0;
-  ssize_t line_length;
+  size_t line_length;
   while ((line_length = getline(&line, &line_capacity, stdin)) != -1) {
     // Remove the trailing newline from line by overwriting it with a null terminator
     line[line_length-1] = '\0';
