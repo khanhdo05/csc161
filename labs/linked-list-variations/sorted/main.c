@@ -84,11 +84,6 @@ int main() {
       // Use strdup because the list takes ownership of arg
       string_list_insert(&lst, strdup(arg));
     
-    } else if ((arg = check_command("append", line)) != NULL) {
-      // Append a new string
-      // Use strdup because the list takes ownership of arg
-      string_list_append(&lst, strdup(arg));
-    
     } else if ((arg = check_command("count", line)) != NULL) {
       // Count occurrences of a value in the list
       size_t count = string_list_count(&lst, arg);

@@ -41,39 +41,36 @@ void string_list_destroy(string_list_t* lst) {
  *            ownership of str, and will free the underlying memory in string_list_destroy.
  */
 void string_list_insert(string_list_t* lst, char* str) {
-  string_node_t *new_node;
+  string_node_t *new_node, *curr, *prev;
   new_node = malloc(sizeof(string_node_t));
   if (new_node == NULL) {
     printf("Error: malloc failed.");
     exit(EXIT_FAILURE);
   }
-  new_node->value= str; 
-  new_node->next = lst->head;
-  lst->head = new_node;
-}
+  new_node->value= str;
 
-/**
- * Add a string to the end of a string list.
- * 
- * \param lst A pointer to an initialized string list. The new value is added to the back of this
- *            list. This function does NOT take ownership of lst.
- * \param str A heap-allocated string that should be appended to the list. This function takes 
- *            ownership of str, and will free the underlying memory in string_list_destroy.
- */
-void string_list_append(string_list_t* lst, char* str) {
-  string_node_t *new_node, *curr;
-  new_node = malloc(sizeof(string_node_t));
-  if (new_node == NULL) {
-    printf("Error: malloc failed.");
-    exit(EXIT_FAILURE);
-  }
   curr = lst->head;
-  new_node->value = str;
-  new_node->next = NULL;
-  while (curr->next != NULL) {
+  prev = NULL;
+
+  while ((curr != NULL) && (strcmp(curr->value, str) <= 0)) {
+    prev = curr;
     curr = curr->next;
   }
-  curr->next = new_node;
+
+  if (prev == NULL) {
+    new_node->next = lst->head;
+    lst->head = new_node;
+    return;
+  } else if (curr == NULL) {
+      prev->next = new_node;
+      new_node->next = NULL;
+      return;
+  }
+
+  prev->next = new_node;
+  new_node->next = curr;
+
+  return;
 }
 
 /**
