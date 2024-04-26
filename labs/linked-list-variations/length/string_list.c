@@ -31,6 +31,7 @@ void string_list_destroy(string_list_t* lst) {
     lst->head = curr;
   }
   lst->head = NULL;
+  lst->length = 0;
 }
 
 /**
@@ -154,6 +155,7 @@ bool string_list_remove(string_list_t* lst, const char* str) {
 
     free(curr->value);
     free(curr);
+    lst->length--;
 
     return true;
 }
