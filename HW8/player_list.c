@@ -73,10 +73,28 @@ void player_list_append(player_list_t* lst, char* name) {
     curr->next = new_node;
 }
 
+// Add a player to the end of the given list. This function should take ownership of the memory pointed to by the name parameter.
+void tagged_list_append(tagged_list_t* lst, char* name) {
+    lst->length++;
+    tagged_list_t *new_node, *curr;
+    new_node = malloc(sizeof(tagged_list_t));
+    if (new_node == NULL) {
+        printf("Error: malloc failed.");
+        exit(EXIT_FAILURE);
+    }
+    curr = lst->head;
+    new_node->value = name;
+    new_node->next = NULL;
+    while (curr->next != NULL) {
+        curr = curr->next;
+    }
+    curr->next = new_node;
+}
+
 // Remove the player with the provided name from the list. Return true if a matching player was found and removed, or false otherwise.
 bool player_list_remove(player_list_t* lst, tagged_list_t* tagged, char* name) {
-    player_t *prev = NULL;
-    player_t *curr = lst->head;
+    player_list_t *prev = NULL;
+    player_list_t *curr = lst->head;
 
     // Traverse the list to find the node to remove
     while (curr != NULL && strcmp(curr->value, name) != 0) {
@@ -84,7 +102,7 @@ bool player_list_remove(player_list_t* lst, tagged_list_t* tagged, char* name) {
         curr = curr->next;
     }
 
-    // When the str input is not found, return false
+    // When the player input is not found, return false
     if (curr == NULL) {
         return false;
     }
@@ -98,6 +116,10 @@ bool player_list_remove(player_list_t* lst, tagged_list_t* tagged, char* name) {
         prev->next = curr->next;
     }
 
+    // Append the removed player to the tagged list
+    tagged_list_append(tagged, curr->value);
+
+    // Free the memory allocated for the removed player
     free(curr->value);
     free(curr);
     lst->length--;
