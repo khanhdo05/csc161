@@ -1,7 +1,9 @@
 #pragma once
 
 #include <stdbool.h>
+#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 // The type for a node in a string list
@@ -18,6 +20,9 @@ typedef struct player_list {
 
 // Initialize an empty list. The lst parameter must point to usable memory that can hold a player_list_t.
 void player_list_init(player_list_t* lst);
+
+// Initialize an empty list. The lst parameter must point to usable memory that can hold a player_list_t.
+void tagged_list_init(tagged_list_t* lst);
 
 //Free all memory allocated as part of the provided list.
 void player_list_destroy(player_list_t* lst);
