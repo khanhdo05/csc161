@@ -177,7 +177,7 @@ void print_as_tagged_list(const tagged_list_t* tagged) {
     if (tagged->length == 0) {
         printf("No people have been tagged yet.\n");
     } else {
-        printf("Target Ring:\n");
+        printf("Tagged Ring:\n");
         player_t *curr;
         curr = tagged->head;
         while (curr != NULL) {

@@ -92,14 +92,15 @@ int main(void) {
             bool removed = player_list_remove(&lst, &tagged, target);
             if (!removed) {
                 // Handle case where the target is not found
-                printf("Error: Target '%s' not found.\n", target);
-            } else {
-                // Print the new target ring
-                print_as_target_ring(&lst);
-
-                // Print the tagged list
-                print_as_tagged_list(&tagged);
+                printf("%s is not a target.\n", target);
             }
+            
+            // Print the new target ring
+            print_as_target_ring(&lst);
+
+            // Print the tagged list
+            print_as_tagged_list(&tagged);
+            
         }
 
         // Free memory allocated for target
