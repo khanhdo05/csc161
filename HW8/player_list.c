@@ -58,6 +58,7 @@ void tagged_list_destroy(tagged_list_t* tagged) {
 // Add a player to the end of the given list. This function should take ownership of the memory pointed to by the name parameter.
 void player_list_append(player_list_t* lst, char* name) {
     lst->length++;
+
     player_t *new_node, *curr;
     new_node = malloc(sizeof(player_t));
     if (new_node == NULL) {
@@ -65,12 +66,21 @@ void player_list_append(player_list_t* lst, char* name) {
         exit(EXIT_FAILURE);
     }
     curr = lst->head;
+
     new_node->value = name;
     new_node->next = NULL;
-    while (curr->next != NULL) {
-        curr = curr->next;
+
+    if (lst->head == NULL) {
+        // If the list is empty, make new_node the head
+        lst->head = new_node;
+    } else {
+        // Find the last node in the list
+        while (curr->next != NULL) {
+            curr = curr->next;
+        }
+        // Append new_node to the end of the list
+        curr->next = new_node;
     }
-    curr->next = new_node;
 }
 
 // Add a player to the end of the given list. This function should take ownership of the memory pointed to by the name parameter.
