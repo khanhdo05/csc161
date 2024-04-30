@@ -29,7 +29,7 @@ void tagged_list_init(tagged_list_t* tagged) {
 
 //Free all memory allocated as part of the provided list.
 void player_list_destroy(player_list_t* lst) {
-    player_t *curr;
+    player_node_t *curr;
     curr = lst->head;
     while (curr != NULL) {
         curr = curr->next;
@@ -43,7 +43,7 @@ void player_list_destroy(player_list_t* lst) {
 
 //Free all memory allocated as part of the provided list.
 void tagged_list_destroy(tagged_list_t* tagged) {
-    player_t *curr;
+    player_node_t *curr;
     curr = tagged->head;
     while (curr != NULL) {
         curr = curr->next;
@@ -59,8 +59,8 @@ void tagged_list_destroy(tagged_list_t* tagged) {
 void player_list_append(player_list_t* lst, char* name) {
     lst->length++;
 
-    player_t *new_node, *curr;
-    new_node = malloc(sizeof(player_t));
+    player_node_t *new_node, *curr;
+    new_node = malloc(sizeof(player_node_t));
     if (new_node == NULL) {
         printf("Error: malloc failed.");
         exit(EXIT_FAILURE);
@@ -87,8 +87,8 @@ void player_list_append(player_list_t* lst, char* name) {
 void tagged_list_append(tagged_list_t* tagged, char* name) {
     tagged->length++;
 
-    player_t *new_node, *curr;
-    new_node = malloc(sizeof(player_t));
+    player_node_t *new_node, *curr;
+    new_node = malloc(sizeof(player_node_t));
     if (new_node == NULL) {
         printf("Error: malloc failed.");
         exit(EXIT_FAILURE);
@@ -113,8 +113,8 @@ void tagged_list_append(tagged_list_t* tagged, char* name) {
 
 // Remove the player with the provided name from the list. Return true if a matching player was found and removed, or false otherwise.
 bool player_list_remove(player_list_t* lst, tagged_list_t* tagged, char* name) {
-    player_t *prev = NULL;
-    player_t *curr = lst->head;
+    player_node_t *prev = NULL;
+    player_node_t *curr = lst->head;
 
     // Traverse the list to find the node to remove
     while (curr != NULL && strcmp(curr->value, name) != 0) {
@@ -160,7 +160,7 @@ void print_as_target_ring(const player_list_t* lst) {
         printf("%s is the final person remaining.\n", lst->head->value);
     } else {
         printf("Target Ring:\n");
-        player_t *curr;
+        player_node_t *curr;
         curr = lst->head;
         while (curr->next != NULL) {
             printf("    %s is stalking %s\n", curr->value, curr->next->value);
@@ -178,7 +178,7 @@ void print_as_tagged_list(const tagged_list_t* tagged) {
         printf("No people have been tagged yet.\n");
     } else {
         printf("Tagged Ring:\n");
-        player_t *curr;
+        player_node_t *curr;
         curr = tagged->head;
         while (curr != NULL) {
             printf("    %s\n", curr->value);

@@ -10,11 +10,11 @@
 typedef struct player {
   char* value;
   struct player* next;
-} player_t;
+} player_node_t;
 
 // A string list
 typedef struct player_list {
-  player_t* head;
+  player_node_t* head;
   size_t length;
 } player_list_t, tagged_list_t;
 
