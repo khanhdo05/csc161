@@ -54,6 +54,8 @@ int main(void) {
         }
     }
 
+    print_as_target_ring(&lst);
+
     // Clean up after getline
     free(line);
 

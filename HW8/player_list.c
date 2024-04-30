@@ -151,7 +151,7 @@ void print_as_target_ring(const player_list_t* lst) {
         printf("Target Ring:\n");
         player_t *curr;
         curr = lst->head;
-        while (curr != NULL) {
+        while (curr->next != NULL) {
             printf("%s is stalking %s\n", curr->value, curr->next->value);
             curr = curr->next;
         }
