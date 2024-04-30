@@ -19,12 +19,12 @@ void player_list_init(player_list_t* lst) {
 /**
  * Initialize an empty linked list that holds strings.
  * 
- * \param lst A pointer to a tagged_list_t that should be initialized.
+ * \param tagged A pointer to a tagged_list_t that should be initialized.
  */
-void tagged_list_init(tagged_list_t* lst) {
+void tagged_list_init(tagged_list_t* tagged) {
   // The list has no nodes, so head points to NULL
-  lst->head = NULL;
-  lst->length = 0;
+  tagged->head = NULL;
+  tagged->length = 0;
 }
 
 //Free all memory allocated as part of the provided list.
@@ -84,21 +84,31 @@ void player_list_append(player_list_t* lst, char* name) {
 }
 
 // Add a player to the end of the given list. This function should take ownership of the memory pointed to by the name parameter.
-void tagged_list_append(tagged_list_t* lst, char* name) {
-    lst->length++;
+void tagged_list_append(tagged_list_t* tagged, char* name) {
+    tagged->length++;
+
     player_t *new_node, *curr;
     new_node = malloc(sizeof(player_t));
     if (new_node == NULL) {
         printf("Error: malloc failed.");
         exit(EXIT_FAILURE);
     }
-    curr = lst->head;
-    new_node->value = name;
+    curr = tagged->head;
+
+    new_node->value = strdup(name);
     new_node->next = NULL;
-    while (curr->next != NULL) {
-        curr = curr->next;
+
+    if (tagged->head == NULL) {
+        // If the list is empty, make new_node the head
+        tagged->head = new_node;
+    } else {
+        // Find the last node in the list
+        while (curr->next != NULL) {
+            curr = curr->next;
+        }
+        // Append new_node to the end of the list
+        curr->next = new_node;
     }
-    curr->next = new_node;
 }
 
 // Remove the player with the provided name from the list. Return true if a matching player was found and removed, or false otherwise.
@@ -133,7 +143,6 @@ bool player_list_remove(player_list_t* lst, tagged_list_t* tagged, char* name) {
     free(curr->value);
     free(curr);
     lst->length--;
-    tagged->length++;
 
     return true;
 }
@@ -145,18 +154,20 @@ size_t player_list_length(const player_list_t* lst) {
 
 // Print the current list, interpreting it as the target ring. 
 void print_as_target_ring(const player_list_t* lst) {
-    if (lst->length == 1) {
+    if (lst->length == 0) {
+        printf("There are no targets left.\n");
+    } else if (lst->length == 1) {
         printf("%s is the final person remaining.\n", lst->head->value);
     } else {
         printf("Target Ring:\n");
         player_t *curr;
         curr = lst->head;
         while (curr->next != NULL) {
-            printf("%s is stalking %s\n", curr->value, curr->next->value);
+            printf("    %s is stalking %s\n", curr->value, curr->next->value);
             curr = curr->next;
         }
         if (curr->next == NULL) {
-            printf("%s is stalking %s\n", curr->value, lst->head->value);
+            printf("    %s is stalking %s\n", curr->value, lst->head->value);
         }
     }
 }
@@ -170,7 +181,7 @@ void print_as_tagged_list(const tagged_list_t* tagged) {
         player_t *curr;
         curr = tagged->head;
         while (curr != NULL) {
-            printf("%s\n", curr->value);
+            printf("    %s\n", curr->value);
             curr = curr->next;
         }
     }

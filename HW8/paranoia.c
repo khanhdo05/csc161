@@ -10,7 +10,7 @@ char* check_for_name(const char* line);
 char* check_for_name(const char* line) {
     // Make sure the argument isn't empty
     if (strlen(line) <= 1) {
-        printf("Error: Empty name.\n");
+        printf("Error: Empty name. Please enter a name.\n");
         return NULL;
     }
 
@@ -30,19 +30,20 @@ int main(void) {
 
     char* line = NULL;
     size_t line_capacity = 0;
-    size_t line_length;
+    ssize_t line_length;
     
     while ((line_length = getline(&line, &line_capacity, stdin)) != -1) {
         // Remove the trailing newline from line by overwriting it with a null terminator
         line[line_length-1] = '\0';
 
         // A temporary string used for some command handling
-        const char* arg;
+        const char *arg;
 
         // Check if the line is empty (i.e., user pressed enter without entering a name)
         if (strcmp(line, "") == 0) {
             break; // Exit the loop if an empty line is entered
         }
+
         // Check for a name
         char* name = check_for_name(line);
         if (name != NULL) {
@@ -54,7 +55,61 @@ int main(void) {
         }
     }
 
+    // Initial name input
     print_as_target_ring(&lst);
+    printf("No people have been tagged yet.\n");
+
+    // Repeatedly play rounds of Paranoia with the user
+    while (player_list_length(&lst) > 1) {
+        printf("\nThere are %zu people left.\n", player_list_length(&lst));
+        printf("Enter a target: ");
+
+        // Read the target input
+        ssize_t line_length = getline(&line, &line_capacity, stdin);
+
+        // Check for input errors or end of file
+        if (line_length == -1) {
+            // Handle input error or end of file
+            printf("Error reading input. Exiting.\n");
+            break;
+        }
+
+        // Remove the trailing newline from line by overwriting it with a null terminator
+        if (line_length > 0 && line[line_length - 1] == '\n') {
+            line[line_length - 1] = '\0';
+        }
+
+        // Check if the line is empty (i.e., user pressed enter without entering a name)
+        if (strcmp(line, "") == 0) {
+            // Skip processing and continue to the next iteration
+            continue;
+        }
+
+        // Check for a target
+        char* target = check_for_name(line);
+        if (target != NULL) {
+            // Remove the target player from the list
+            bool removed = player_list_remove(&lst, &tagged, target);
+            if (!removed) {
+                // Handle case where the target is not found
+                printf("Error: Target '%s' not found.\n", target);
+            } else {
+                // Print the new target ring
+                print_as_target_ring(&lst);
+
+                // Print the tagged list
+                print_as_tagged_list(&tagged);
+            }
+        }
+
+        // Free memory allocated for target
+        free(target);
+    }
+
+    // Check if there is only one person left in the game
+    if (player_list_length(&lst) == 1) {
+        printf("The winner is: %s\n", lst.head->value);
+    }
 
     // Clean up after getline
     free(line);

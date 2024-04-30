@@ -33,6 +33,9 @@ void tagged_list_destroy(tagged_list_t* tagged);
 // Add a player to the end of the given list. This function should take ownership of the memory pointed to by the name parameter.
 void player_list_append(player_list_t* lst, char* name);
 
+// Add a player to the end of the tagged list
+void tagged_list_append(tagged_list_t* tagged, char* name);
+
 // Remove the player with the provided name from the list. Return true if a matching player was found and removed, or false otherwise.
 bool player_list_remove(player_list_t* lst, tagged_list_t* tagged, char* name);
 
