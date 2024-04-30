@@ -155,6 +155,9 @@ void print_as_target_ring(const player_list_t* lst) {
             printf("%s is stalking %s\n", curr->value, curr->next->value);
             curr = curr->next;
         }
+        if (curr->next == NULL) {
+            printf("%s is stalking %s\n", curr->value, lst->head->value);
+        }
     }
 }
 
