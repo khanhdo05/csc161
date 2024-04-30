@@ -6,7 +6,7 @@
 #include <string.h>
 
 /**
- * Initialize an empty linked list that holds strings.
+ * Initialize an empty linked list tmakhat holds strings.
  * 
  * \param lst A pointer to a player_list_t that should be initialized.
  */
