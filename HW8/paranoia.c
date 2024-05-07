@@ -19,10 +19,11 @@ char* check_for_name(const char* line) {
 }
 
 int main(void) {
-    // Create a list and initialize it
+    // Create a list for the target list and initialize it
     player_list_t lst;
     player_list_init(&lst);
 
+    // Create a list for the tagged list and initializa it
     tagged_list_t tagged;
     tagged_list_init(&tagged);
 
@@ -32,6 +33,7 @@ int main(void) {
     size_t line_capacity = 0;
     ssize_t line_length;
     
+    // Handle user's input of names at the beginning of the game
     while ((line_length = getline(&line, &line_capacity, stdin)) != -1) {
         // Remove the trailing newline from line by overwriting it with a null terminator
         line[line_length-1] = '\0';
@@ -55,7 +57,7 @@ int main(void) {
         }
     }
 
-    // Initial name input
+    // Initial print of the ring
     print_as_target_ring(&lst);
     printf("No people have been tagged yet.\n");
 
@@ -94,7 +96,7 @@ int main(void) {
                 // Handle case where the target is not found
                 printf("%s is not a target.\n", target);
             }
-            
+
             // Print the new target ring
             print_as_target_ring(&lst);
 
