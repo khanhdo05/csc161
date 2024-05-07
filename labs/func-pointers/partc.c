@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Function Declarations
 void printProfits();
 void printGreetings();
 void printBest();
@@ -15,6 +16,13 @@ typedef struct {
   void (*cmd_pointer)();
 } command_t;
 
+/*
+These commands are of the theme: Coffee Shop
+    -profits: Print how much the shop makes today
+    -greetings: Print the greetings message
+    -best: Print the best item on the menu today
+    -music: Print the music playlist
+*/ 
 command_t print_cmds[] = {
     {"profits", printProfits},
     {"greetings", printGreetings},
